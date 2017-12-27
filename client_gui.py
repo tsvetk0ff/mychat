@@ -28,6 +28,7 @@ client.connect()
 listener = GuiReceiver(client.sock, client.request_queue)
 
 
+
 @pyqtSlot(str)
 def update_chat(data):
     try:
