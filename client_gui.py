@@ -22,7 +22,7 @@ except IndexError:
     name = 'GuiGuest'
 
 app = QtWidgets.QApplication(sys.argv)
-window = uic.loadUi('sv_main.ui')
+window = uic.loadUi('forms/sv_main.ui')
 client = User(name, addr, port)
 client.connect()
 listener = GuiReceiver(client.sock, client.request_queue)
