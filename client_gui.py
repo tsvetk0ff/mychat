@@ -4,6 +4,20 @@ from PyQt5.QtCore import Qt, QThread, pyqtSlot
 from client import User
 from handlers import GuiReceiver
 
+login_app = QtWidgets.QApplication(sys.argv)
+login_window = uic.loadUi('forms/login.ui')
+
+
+def read_username():
+    try:
+        username = login_window.textEditLogin.toPlainText()
+        return username
+    except Exception as e:
+        print(e)
+
+
+login_window.pushButtonEnter.clicked.connect(read_username)
+
 try:
     addr = sys.argv[1]
 except IndexError:
@@ -16,7 +30,7 @@ except ValueError:
     print('Порт должен быть целым числом')
     sys.exit(0)
 try:
-    name = sys.argv[3]
+    name = read_username()
     print(name)
 except IndexError:
     name = 'GuiGuest'
@@ -26,7 +40,6 @@ window = uic.loadUi('forms/sv_main.ui')
 client = User(name, addr, port)
 client.connect()
 listener = GuiReceiver(client.sock, client.request_queue)
-
 
 
 @pyqtSlot(str)
@@ -93,6 +106,8 @@ def send_message():
 
 window.pushButtonDelContact.clicked.connect(del_contact)
 window.pushButtonSend.clicked.connect(send_message)
+
+
 
 window.show()
 sys.exit(app.exec_())
