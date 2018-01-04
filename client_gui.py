@@ -4,17 +4,17 @@ from PyQt5.QtCore import Qt, QThread, pyqtSlot
 from client import User
 from handlers import GuiReceiver
 
-# login_app = QtWidgets.QApplication(sys.argv)
-# login_window = uic.loadUi('forms/login.ui')
-# def read_username():
-#     try:
-#         username = login_window.textEditLogin.toPlainText()
-#         return username
-#     except Exception as e:
-#         print(e)
-#
-#
-# login_window.pushButtonEnter.clicked.connect(read_username)
+login_app = QtWidgets.QApplication(sys.argv)
+login_window = uic.loadUi('forms/login.ui')
+def read_username():
+    try:
+        username = login_window.textEditLogin.toPlainText()
+        return username
+    except Exception as e:
+        print(e)
+
+
+login_window.pushButtonEnter.clicked.connect(read_username)
 
 try:
     addr = sys.argv[1]
