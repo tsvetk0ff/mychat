@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt, QThread, pyqtSlot
 from client import User
 from handlers import GuiReceiver
+from termcolor import colored
 
 # login_app = QtWidgets.QApplication(sys.argv)
 # login_window = uic.loadUi('forms/login.ui')
@@ -28,13 +29,13 @@ except ValueError:
     print('Порт должен быть целым числом')
     sys.exit(0)
 try:
-    name = read_username()
+    name = sys.argv[3]
     print(name)
 except IndexError:
     name = 'GuiGuest'
 
 app = QtWidgets.QApplication(sys.argv)
-window = uic.loadUi('forms/sv_main.ui')
+window = uic.loadUi('sv_main.ui')
 client = User(name, addr, port)
 client.connect()
 listener = GuiReceiver(client.sock, client.request_queue)
@@ -98,8 +99,9 @@ def send_message():
         selected_index = window.listWidgetContacts.currentIndex()
         user_name = selected_index.data()
         client.send_message(user_name, text)
-        msg = '{} >>> {}'.format(name, text)
+        msg = '{:>30}: {:>30}'.format(name, text)
         window.listWidgetMessages.addItem(msg)
+        window.textEditMessage.clear()
 
 
 window.pushButtonDelContact.clicked.connect(del_contact)
