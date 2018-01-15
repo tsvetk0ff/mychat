@@ -3,19 +3,6 @@ from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt, QThread, pyqtSlot
 from client import User
 from handlers import GuiReceiver
-from termcolor import colored
-
-login_app = QtWidgets.QApplication(sys.argv)
-login_window = uic.loadUi('forms/login.ui')
-def read_username():
-    try:
-        username = login_window.textEditLogin.toPlainText()
-        return username
-    except Exception as e:
-        print(e)
-
-
-login_window.pushButtonEnter.clicked.connect(read_username)
 
 try:
     addr = sys.argv[1]
@@ -99,7 +86,7 @@ def send_message():
         selected_index = window.listWidgetContacts.currentIndex()
         user_name = selected_index.data()
         client.send_message(user_name, text)
-        msg = '{:>30}: {:>30}'.format(name, text)
+        msg = '{:>30}: {}'.format(name, text)
         window.listWidgetMessages.addItem(msg)
         window.textEditMessage.clear()
 

@@ -8,7 +8,7 @@
 - addr ​-​ ​i​p-адрес ​с​ервера;
 - port ​-​ ​t​cp-порт ​​на ​с​ервере, ​​по ​у​молчанию ​​7777.
 """
-from queue import Queue
+import queue
 import sys
 import logging
 from socket import socket, AF_INET, SOCK_STREAM
@@ -31,7 +31,7 @@ class User(object):
         self.addr = addr
         self.port = port
         self.login = login
-        self.request_queue = Queue()
+        self.request_queue = queue.Queue()
 
     def connect(self):
         # Соединиться с сервером

@@ -1,9 +1,6 @@
-from jim.config import MESSAGE
 from PyQt5.QtCore import QObject, pyqtSignal
+from jim.core import Jim, JimMessage
 from jim.utils import get_message
-from jim.core import Jim, JimResponse, JimMessage
-from jim.exceptions import WrongParamsError, ToLongError, WrongActionError, WrongDictError, ResponseCodeError
-from jim.config import *
 
 
 class Receiver:
