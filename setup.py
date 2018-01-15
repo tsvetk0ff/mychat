@@ -10,10 +10,4 @@ setup(
     keywords=['python', 'messenger', 'T-chat'],
     author='Igor Tsvetkov',
     author_email='tsvetkov.igor.n@gmail.com',
-    # packages=['hanita', 'hanita/forms', 'hanita_server', 'hanita_JIM'],
-    # include_package_data=True,
-    # python_requires='>=3.5',
-    # install_requires=[
-    #     'PyQt5==5.9', 'SQLAlchemy==1.1.15'
-    ],
-)
+    )
