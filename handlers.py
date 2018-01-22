@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QObject, pyqtSignal
-from jim.core import Jim, JimMessage
-from jim.utils import get_message
+from Tschat_jim.core import Jim, JimMessage
+from Tschat_jim.utils import get_message
 
 
 class Receiver:

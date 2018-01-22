@@ -6,7 +6,7 @@ import os
 # Папка где лежит этот файл
 LOG_FOLDER_PATH = os.path.dirname(os.path.abspath(__file__))
 # Пусть до серверного лога
-SERVER_LOF_FILE_PATH = os.path.join(LOG_FOLDER_PATH, 'server.log')
+SERVER_LOF_FILE_PATH = os.path.join(LOG_FOLDER_PATH, 'server.Tschat_log')
 # Формат сообщения
 formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 # Создаем логгер с именем server

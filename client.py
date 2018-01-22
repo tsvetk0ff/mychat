@@ -13,17 +13,17 @@ import sys
 import logging
 from socket import socket, AF_INET, SOCK_STREAM
 from threading import Thread
-from jim.config import *
-from jim.utils import send_message, get_message
-import log.client_log_config
-from log.decorators import Log
-from jim.core import JimPresence, JimMessage, Jim, JimResponse, JimDelContact, JimAddContact, JimContactList, \
+from Tschat_jim.config import *
+from Tschat_jim.utils import send_message, get_message
+import Tschat_log.client_log_config
+from Tschat_log.decorators import Log
+from Tschat_jim.core import JimPresence, JimMessage, Jim, JimResponse, JimDelContact, JimAddContact, JimContactList, \
     JimGetContacts
 
 # Получаем по имени клиентский логгер, он уже нестроен в log_config
 logger = logging.getLogger('client')
 # создаем класс декоратор для логирования функций
-log = Log(logger)
+Tschat_log = Log(logger)
 
 
 class User(object):
@@ -157,7 +157,7 @@ class User(object):
 #                     else:
 #                         print(response.error)
 #
-#             # Создаем jim сообщение
+#             # Создаем Tschat_jim сообщение
 #             self.create_message('#all', text)
 #             # # отправляем на сервер
 #             # send_message(service, message)

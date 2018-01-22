@@ -5,7 +5,7 @@ import os
 # путь до папки где лежит этот модуль
 LOG_FOLDER_PATH = os.path.dirname(os.path.abspath(__file__))
 # путь до файла с логом
-CLIENT_LOG_FILE_PATH = os.path.join(LOG_FOLDER_PATH, 'client.log')
+CLIENT_LOG_FILE_PATH = os.path.join(LOG_FOLDER_PATH, 'client.Tschat_log')
 
 # создаем логгер и именем client
 client_logger = logging.getLogger('client')

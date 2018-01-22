@@ -11,20 +11,20 @@ import sys
 import logging
 import select
 from socket import socket, AF_INET, SOCK_STREAM
-from repo.server_models import session
-from repo.server_repo import Repo
-from repo.server_errors import ContactDoesNotExist
-from jim.utils import get_message, send_message
-from jim.config import *
-from jim.core import Jim, JimMessage, JimResponse, JimContactList, JimAddContact, JimDelContact
-from jim.exceptions import WrongInputError
+from Tschat_repo.server_models import session
+from Tschat_repo.server_repo import Repo
+from Tschat_repo.server_errors import ContactDoesNotExist
+from Tschat_jim.utils import get_message, send_message
+from Tschat_jim.config import *
+from Tschat_jim.core import Jim, JimMessage, JimResponse, JimContactList, JimAddContact, JimDelContact
+from Tschat_jim.exceptions import WrongInputError
 
-import log.server_log_config
-from log.decorators import Log
+import Tschat_log.server_log_config
+from Tschat_log.decorators import Log
 
 # Получаем серверный логгер по имени, он уже объявлен в log_config и настроен
 logger = logging.getLogger('server')
-log = Log(logger)
+Tschat_log = Log(logger)
 
 
 class Handler():
