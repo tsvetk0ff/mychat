@@ -1,6 +1,6 @@
 import sys
-from client import User
-from handlers import ConsoleReceiver
+from .client import User
+from .handlers import ConsoleReceiver
 import threading
 
 try:
@@ -69,5 +69,3 @@ while True:
         print('Неизвестная команда. Для справки введите help')
 
 client.disconnect()
-
-# python client_console.py localhost 7777 Igor

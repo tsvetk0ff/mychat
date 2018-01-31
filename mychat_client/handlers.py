@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QObject, pyqtSignal
-from Tschat_jim.core import Jim, JimMessage
-from Tschat_jim.utils import get_message
+from mychat_jim.core import Jim, JimMessage
+from mychat_jim.utils import get_message
 
 
 class Receiver:
@@ -46,7 +46,7 @@ class GuiReceiver(Receiver, QObject):
         QObject.__init__(self)
 
     def process_message(self, message):
-        text='{}: {}'.format(message.from_, message.message)
+        text = '{}: {}'.format(message.from_, message.message)
         self.gotData.emit(text)
 
     def poll(self):

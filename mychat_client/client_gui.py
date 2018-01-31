@@ -1,8 +1,8 @@
 import sys
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtCore import Qt, QThread, pyqtSlot
-from client import User
-from handlers import GuiReceiver
+from PyQt5.QtCore import QThread, pyqtSlot
+from mychat_client.client import User
+from mychat_client.handlers import GuiReceiver
 
 try:
     addr = sys.argv[1]
@@ -19,7 +19,8 @@ try:
     name = sys.argv[3]
     print(name)
 except IndexError:
-    name = 'GuiGuest'
+    login = input('Login: ')
+    name = login
 
 app = QtWidgets.QApplication(sys.argv)
 window = uic.loadUi('sv_main.ui')
@@ -94,5 +95,14 @@ def send_message():
 window.pushButtonDelContact.clicked.connect(del_contact)
 window.pushButtonSend.clicked.connect(send_message)
 
-window.show()
-sys.exit(app.exec_())
+
+# window.show()
+# sys.exit(app.exec_())
+
+def main():
+    window.show()
+    sys.exit(app.exec_())
+
+
+if __name__ == "__main__":
+    main()

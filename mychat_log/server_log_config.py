@@ -1,7 +1,5 @@
-import logging
 import logging.handlers
 import os
-
 
 # Папка где лежит этот файл
 LOG_FOLDER_PATH = os.path.dirname(os.path.abspath(__file__))

@@ -1,4 +1,4 @@
-from .server_models import ClientContact, Client, ClientHistory
+from .server_models import ClientContact, Client
 from .server_errors import ContactDoesNotExist
 
 

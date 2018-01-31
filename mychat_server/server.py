@@ -11,20 +11,18 @@ import sys
 import logging
 import select
 from socket import socket, AF_INET, SOCK_STREAM
-from Tschat_repo.server_models import session
-from Tschat_repo.server_repo import Repo
-from Tschat_repo.server_errors import ContactDoesNotExist
-from Tschat_jim.utils import get_message, send_message
-from Tschat_jim.config import *
-from Tschat_jim.core import Jim, JimMessage, JimResponse, JimContactList, JimAddContact, JimDelContact
-from Tschat_jim.exceptions import WrongInputError
-
-import Tschat_log.server_log_config
-from Tschat_log.decorators import Log
+from mychat_repo.server_models import session
+from mychat_repo.server_repo import Repo
+from mychat_repo.server_errors import ContactDoesNotExist
+from mychat_jim.utils import get_message, send_message
+from mychat_jim.config import *
+from mychat_jim.core import Jim, JimResponse, JimContactList
+from mychat_jim.exceptions import WrongInputError
+from mychat_log.decorators import Log
 
 # Получаем серверный логгер по имени, он уже объявлен в log_config и настроен
 logger = logging.getLogger('server')
-Tschat_log = Log(logger)
+log = Log(logger)
 
 
 class Handler():
@@ -196,7 +194,7 @@ class Server:
                 self.handler.write_responses(requests, self.names, self.clients)
 
 
-if __name__ == '__main__':
+def main():
     try:
         addr = sys.argv[1]
     except IndexError:
@@ -213,3 +211,7 @@ if __name__ == '__main__':
     server = Server(handler)
     server.bind(addr, port)
     server.listen_forever()
+
+
+if __name__ == '__main__':
+    main()
