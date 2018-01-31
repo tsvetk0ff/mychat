@@ -1,4 +1,5 @@
 import sys
+import os.path
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QThread, pyqtSlot
 from mychat_client.client import User
@@ -22,8 +23,15 @@ except IndexError:
     login = input('Login: ')
     name = login
 
+paths = sys.path
+b = ''
+for i in paths:
+    if i.endswith('site-packages'):
+        b = i
+
+form_path = b + '\mychat_client\sv_main.ui'
 app = QtWidgets.QApplication(sys.argv)
-window = uic.loadUi('sv_main.ui')
+window = uic.loadUi(form_path)
 client = User(name, addr, port)
 client.connect()
 listener = GuiReceiver(client.sock, client.request_queue)
